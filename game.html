@@ -44,7 +44,7 @@
       x: 400, y: 300, radius: 20,
       speed: 4, health: 3, maxHealth: 3,
       angle: 0, invincible: 0, flash: 0
-    ));
+    };
 
     // Game objects
     let bullets = [];
@@ -60,23 +60,23 @@
       3: { total: 12, fast: 4, tank: 2, spawnRate: 70 },
       4: { total: 15, fast: 6, tank: 3, spawnRate: 60 },
       5: { total: 20, fast: 8, tank: 5, spawnRate: 50 }
-    ));
+    };
 
     // Input handlers
     document.addEventListener('keydown', e => {
       keys[e.key] = true;
       if (e.key === 'Enter') handleEnter();
-    ));
+    });
     document.addEventListener('keyup', e => keys[e.key] = false);
     canvas.addEventListener('mousemove', e => {
       const rect = canvas.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
-    ));
+    });
     canvas.addEventListener('mousedown', () => {
       mouseDown = true;
       if (state === PLAYING) shoot();
-    ));
+    });
     canvas.addEventListener('mouseup', () => mouseDown = false);
 
     function handleEnter() {
@@ -111,7 +111,7 @@
         y: player.y + Math.sin(angle) * 25,
         vx: Math.cos(angle) * 10,
         vy: Math.sin(angle) * 10
-      ));
+      });
     }
 
     function spawnEnemy() {
@@ -138,9 +138,9 @@
         basic: { speed: 1.5, health: 1, size: 20, color: '#f00', score: 10 },
         fast: { speed: 3, health: 1, size: 15, color: '#fa0', score: 20 },
         tank: { speed: 0.8, health: 3, size: 30, color: '#a0f', score: 50 }
-      ));
+      };
       const s = stats[type];
-      enemies.push({ x, y, ...s, type, maxHealth: s.health ));
+      enemies.push({ x, y, ...s, type, maxHealth: s.health });
     }
 
     function createParticles(x, y, color, count = 10) {
@@ -153,7 +153,7 @@
           vy: Math.sin(angle) * speed,
           life: 30,
           color
-        ));
+        });
       }
     }
 
@@ -196,7 +196,7 @@
         b.x += b.vx;
         b.y += b.vy;
         return b.x > -20 && b.x < 820 && b.y > -20 && b.y < 620;
-      ));
+      });
 
       // Update enemies
       enemies.forEach(e => {
@@ -215,7 +215,7 @@
               createParticles(e.x, e.y, e.color, 15);
             }
           }
-        ));
+        }
 
         // Collision with player
         if (player.invincible <= 0) {
@@ -231,7 +231,7 @@
             }
           }
         }
-      ));
+      });
 
       // Remove dead enemies
       enemies = enemies.filter(e => e.health > 0);
@@ -244,7 +244,7 @@
         p.vy *= 0.95;
         p.life--;
         return p.life > 0;
-      ));
+      });
 
       // Screen shake decay
       if (screenShake > 0) screenShake--;
