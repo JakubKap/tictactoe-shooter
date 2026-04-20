@@ -4,10 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 - Two standalone HTML games in the project root: `game.html` (top-down shooter) and `tictactoe.html` (3x3 Tic Tac Toe).
-- No build system — open any file directly in a browser. Git tracks both files in the `main` branch on GitHub at https://github.com/JakubKap/tictactoe-shooter.
+- No build system — open any file directly in a browser or use a local web server. Git tracks both files in the `main` branch on GitHub at https://github.com/JakubKap/tictactoe-shooter.
 
 ## Common Git Workflows
-- Start work: ensure you’re on `main` and run `git pull origin main`.
+- Start work: ensure you're on `main` and run `git pull origin main`.
 - Create feature work: make a descriptive branch (`git checkout -b feature/...`), commit with clear messages, and push with `git push -u origin <branch>`.
 - Share changes: open a PR via GitHub UI; avoid interactive rebase/amend on shared branches.
 - Save progress: commit often with concise messages; push to keep a remote backup.
@@ -15,12 +15,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Rule while working
 - As you do work, always commit changes to Git with clean, descriptive messages and push to GitHub immediately so we never lose status or work.
 
+## Recent Activities
+- Fixed multiple syntax errors in game.html (missing parentheses, incorrect closure)
+- Added README.md with run instructions and icons
+- Created local web server on port 8000
+- Removed unnecessary FIX_SUMMARY.md file
+- All files committed and pushed to GitHub
+
 ## Running / Testing
 - Open any `.html` file in a modern browser (double-click or `start <file>` on Windows).
+- Or run local server: `python -m http.server 8000` then visit `http://localhost:8000`
 - No automated tests; verify behavior manually in-browser (e.g., start game, move player, shoot, advance levels, reset).
 
 ## Architecture Notes (big picture)
-- `game.html`: single-file app with separate game states (MENU, PLAYING, GAME_OVER). Uses Canvas 2D for rendering; game loop via `requestAnimationFrame`.
+- `game.html`: single-file app with separate game states (MENU, PLAYING, LEVEL_COMPLETE, GAME_OVER). Uses Canvas 2D for rendering; game loop via `requestAnimationFrame`.
   - Player input: keyboard (Arrow/WASD) + mouse for aiming/shoot.
   - Entities: bullets (array), enemies (array with types basic/fast/tank), particles (decals/explosions), screen shake on hit.
   - Level progression: config-driven spawn counts/rates; increasing difficulty with tanks.
