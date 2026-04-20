@@ -16,12 +16,12 @@ Two standalone HTML games built with Claude Code, running directly in browsers.
 
 ## How to Run
 
-### Option 1: Local Server (Recommended)
+### Option 1: Using Python (Recommended)
+Open terminal in this folder and run:
 ```bash
-cd "C:/Users/kubix/Desktop/Praca/2025/Cursor/Claude Code Test"
 python -m http.server 8000
 ```
-Visit: `http://localhost:8000`
+Then visit: `http://localhost:8000`
 
 ### Option 2: Direct File
 Open `index.html` or `game.html` directly in any browser.
