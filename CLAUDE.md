@@ -3,7 +3,7 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Repository Overview
-- Two standalone HTML games in the project root: `game.html` (top-down shooter) and `tictactoe.html` (3x3 Tic Tac Toe).
+- Two standalone HTML games in the project root: `topdownshooter.html` (top-down shooter) and `tictactoe.html` (3x3 Tic Tac Toe).
 - No build system — open any file directly in a browser or use a local web server. Git tracks both files in the `main` branch on GitHub at https://github.com/JakubKap/tictactoe-shooter.
 
 ## Common Git Workflows
@@ -16,10 +16,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - As you do work, always commit changes to Git with clean, descriptive messages and push to GitHub immediately so we never lose status or work.
 
 ## Recent Activities
-- Fixed multiple syntax errors in game.html (missing parentheses, incorrect closure)
+- Fixed multiple syntax errors in topdownshooter.html (missing parentheses, incorrect closure)
 - Added README.md with run instructions and icons
 - Created local web server on port 8000
 - Removed unnecessary FIX_SUMMARY.md file
+- Renamed game.html to topdownshooter.html
+- Updated index.html and CLAUDE.md to reflect new filename
 - All files committed and pushed to GitHub
 
 ## Running / Testing
@@ -28,7 +30,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - No automated tests; verify behavior manually in-browser (e.g., start game, move player, shoot, advance levels, reset).
 
 ## Architecture Notes (big picture)
-- `game.html`: single-file app with separate game states (MENU, PLAYING, LEVEL_COMPLETE, GAME_OVER). Uses Canvas 2D for rendering; game loop via `requestAnimationFrame`.
+- `topdownshooter.html`: single-file app with separate game states (MENU, PLAYING, LEVEL_COMPLETE, GAME_OVER). Uses Canvas 2D for rendering; game loop via `requestAnimationFrame`.
   - Player input: keyboard (Arrow/WASD) + mouse for aiming/shoot.
   - Entities: bullets (array), enemies (array with types basic/fast/tank), particles (decals/explosions), screen shake on hit.
   - Level progression: config-driven spawn counts/rates; increasing difficulty with tanks.
