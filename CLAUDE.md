@@ -12,6 +12,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Share changes: open a PR via GitHub UI; avoid interactive rebase/amend on shared branches.
 - Save progress: commit often with concise messages; push to keep a remote backup.
 
+## Rule while working
+- As you do work, always commit changes to Git with clean, descriptive messages and push to GitHub immediately so we never lose status or work.
+
 ## Running / Testing
 - Open any `.html` file in a modern browser (double-click or `start <file>` on Windows).
 - No automated tests; verify behavior manually in-browser (e.g., start game, move player, shoot, advance levels, reset).
@@ -24,6 +27,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `tictactoe.html`: classic 3x3 board with DOM-driven UI, win/draw detection, and restart.
 
 ## Conventions
-- Keep changes focused; prefer editing existing files over adding new ones.
-- Use descriptive commit messages; prefix with scope when helpful (e.g., `game: add enemy tank`).
+- Always commit changes with clean, descriptive messages; push to GitHub after each meaningful step.
+- Use descriptive branch names; prefer small, focused commits.
 - Coordinate with Git when making larger refactors to avoid merge conflicts.
